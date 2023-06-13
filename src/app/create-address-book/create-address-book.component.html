@@ -1,0 +1,78 @@
+<h1>create new AddressBook</h1>
+<p class="text-danger" *ngIf="error">{{error}}</p>
+<form [formGroup]="CreateAddressBook" (ngSubmit)="Create()">
+
+    <div class="form-group">
+        <label>Full Name</label>
+        <input  [class.is-invalid]="CreateAddressBook.controls.FullName.invalid&&CreateAddressBook.controls.FullName.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="FullName" >
+        <span *ngIf="CreateAddressBook.controls.FullName.invalid&&CreateAddressBook.controls.FullName.touched"  class="text-danger">Required!</span>
+
+    </div>
+
+    <div class="form-group mt-3" >
+        <label >Job</label>
+        <select  formControlName="JobId" class="form-control my-2" class="form-control my-2">
+            <option *ngFor="let job of jobs" value="{{job.id}}">{{job.name}}</option>
+        </select>
+        <span *ngIf="CreateAddressBook.controls.JobId.invalid&&CreateAddressBook.controls.JobId.touched"  class="text-danger">Required!</span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label >Department</label>
+        <select  formControlName="DepartmentId" class="form-control my-2" class="form-control my-2">
+            <option *ngFor="let Department of Departments" value="{{Department.id}}">{{Department.name}}</option>
+        </select>
+        <span *ngIf="CreateAddressBook.controls.DepartmentId.invalid&&CreateAddressBook.controls.DepartmentId.touched"  class="text-danger">Required!</span>
+    </div>
+
+    <div class="form-group">
+        <label>Mobile Number</label>
+        <input [class.is-invalid]="CreateAddressBook.controls.MobileNumber.invalid&&CreateAddressBook.controls.MobileNumber.touched" class="form-control my-2" class="form-control my-2" type="text"  formControlName="MobileNumber">
+        <span *ngIf="CreateAddressBook.controls.MobileNumber.invalid&&CreateAddressBook.controls.MobileNumber.touched"  class="text-danger">Please Enter valid Egyptian Number!</span>
+
+    </div>
+
+    <div class="form-group">
+        <label>Data of Birth</label>
+        <input [class.is-invalid]="CreateAddressBook.controls.DateOfBirth.invalid&&CreateAddressBook.controls.DateOfBirth.touched" class="form-control my-2" class="form-control my-2" type="date"  formControlName="DateOfBirth">
+        <span *ngIf="CreateAddressBook.controls.DateOfBirth.invalid&&CreateAddressBook.controls.DateOfBirth.touched" class="text-danger">Required!</span>
+
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input [class.is-invalid]="CreateAddressBook.controls.Address.invalid&&CreateAddressBook.controls.Address.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="Address">
+        <span *ngIf="CreateAddressBook.controls.Address.invalid&&CreateAddressBook.controls.Address.touched" class="text-danger">Required!</span>
+
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input [class.is-invalid]="CreateAddressBook.controls.Email.invalid&&CreateAddressBook.controls.Email.touched" class="form-control my-2" class="form-control my-2" type="text"   formControlName="Email">
+        <span *ngIf="CreateAddressBook.controls.Email.invalid&&CreateAddressBook.controls.Email.touched" class="text-danger">please Enter valid Email!</span>
+
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input [class.is-invalid]="CreateAddressBook.controls.Password.invalid&&CreateAddressBook.controls.Password.touched" class="form-control my-2" class="form-control my-2" type="text"   formControlName="Password">
+        <span *ngIf="CreateAddressBook.controls.Password.invalid&&CreateAddressBook.controls.Password.touched" class="text-danger">Password must have 1 Uppercase, 1 Lowercase, 1 number, 1 non alphanumeric and at least 6 characters!</span>
+
+    </div>
+
+    <div class="form-group">
+        <label>Photo</label>
+        <input type="file" (change)="SelectFile($event)" class="form-control my-2" class="form-control my-2">
+
+    </div>
+    
+    
+    <div class="form-group">
+        <label>Age</label>
+        <input [class.is-invalid]="CreateAddressBook.controls.Age.invalid&&CreateAddressBook.controls.Age.touched" class="form-control my-2" class="form-control my-2" type="text"   formControlName="Age">
+        <span *ngIf="CreateAddressBook.controls.Age.invalid&&CreateAddressBook.controls.Age.touched" class="text-danger">Required!</span>
+
+    </div>
+
+
+    <button  class="btn btn-primary my-2 mt-3" type="submit">Create</button>
+</form>
+

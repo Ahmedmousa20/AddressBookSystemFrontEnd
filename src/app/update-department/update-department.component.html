@@ -1,0 +1,12 @@
+<h1>Update Department!</h1>
+<form [formGroup]="UpdateDepartment" (ngSubmit)="Update()">
+    <div class="form-group">
+        <label>Name</label>
+        <input  [class.is-invalid]="UpdateDepartment.controls.Name.invalid&&UpdateDepartment.controls.Name.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="Name" >
+        <span *ngIf="UpdateDepartment.controls.Name.invalid&&UpdateDepartment.controls.Name.touched"  class="text-danger">Required!</span>
+
+    </div>
+
+    <button  class="btn btn-primary my-2 mt-3" type="submit">Update</button>
+    <a class="btn btn-light m-3" routerLink="/JobsHome">back to home</a>
+</form>

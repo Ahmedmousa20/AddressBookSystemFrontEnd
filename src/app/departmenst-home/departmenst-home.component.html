@@ -1,0 +1,23 @@
+<input [(ngModel)]="term"  placeholder="search..." type="text" class="form-control w-50 m-auto bg-transparent">
+
+<a class="btn btn-primary mb-5 mt-5" routerLink="/CreateDepartment">Create New Department</a>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments|search:term">
+        <th scope="row">{{department.id}}</th>
+        <td>{{department.name}}</td>
+        <td><a class="btn btn-primary" routerLink="/UpdateDepartment/{{department.id}}">Update</a></td>
+        <td><a class="btn btn-danger" routerLink="/DeleteDepartment/{{department.id}}">Delete</a></td>
+      </tr>
+      
+    </tbody>
+  </table>

@@ -1,0 +1,23 @@
+<input [(ngModel)]="term"  placeholder="search..." type="text" class="form-control w-50 m-auto bg-transparent">
+
+<a class="btn btn-primary mb-5 mt-5" routerLink="/CreateJob">Create New Job</a>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobs|search:term">
+        <th scope="row">{{job.id}}</th>
+        <td>{{job.name}}</td>
+        <td><a class="btn btn-primary" routerLink="/UpdateJob/{{job.id}}">Update</a></td>
+        <td><a class="btn btn-danger" routerLink="/DeleteJob/{{job.id}}">Delete</a></td>
+      </tr>
+      
+    </tbody>
+  </table>

@@ -1,0 +1,12 @@
+<h1>Ensure to Delete!</h1>
+<form [formGroup]="DeleteJob" (ngSubmit)="Delete()">
+    <div class="form-group">
+        <label>Name</label>
+        <input  [class.is-invalid]="DeleteJob.controls.Name.invalid&&DeleteJob.controls.Name.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="Name" >
+        <span *ngIf="DeleteJob.controls.Name.invalid&&DeleteJob.controls.Name.touched"  class="text-danger">Required!</span>
+
+    </div>
+
+    <button  class="btn btn-danger my-2 mt-3" type="submit">Delete</button>
+    <a class="btn btn-light m-3" routerLink="/JobsHome">back to home</a>
+</form>

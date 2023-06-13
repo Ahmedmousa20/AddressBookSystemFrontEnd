@@ -1,0 +1,69 @@
+<h1>Ensure to Delete!</h1>
+<form [formGroup]="DeleteAddressBook" (ngSubmit)="Delete()">
+
+    <div class="form-group">
+        <label>Full Name</label>
+        <input  [class.is-invalid]="DeleteAddressBook.controls.FullName.invalid&&DeleteAddressBook.controls.FullName.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="FullName" >
+        <span *ngIf="DeleteAddressBook.controls.FullName.invalid&&DeleteAddressBook.controls.FullName.touched"  class="text-danger">Required!</span>
+
+    </div>
+
+    <div class="form-group mt-3" >
+        <label >Job</label>
+        <select  formControlName="JobId" class="form-control my-2" class="form-control my-2">
+            <option *ngFor="let job of jobs" value="{{job.id}}">{{job.name}}</option>
+        </select>
+        <span *ngIf="DeleteAddressBook.controls.JobId.invalid&&DeleteAddressBook.controls.JobId.touched"  class="text-danger">Required!</span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label >Department</label>
+        <select  formControlName="DepartmentId" class="form-control my-2" class="form-control my-2">
+            <option *ngFor="let Department of Departments" value="{{Department.id}}">{{Department.name}}</option>
+        </select>
+        <span *ngIf="DeleteAddressBook.controls.DepartmentId.invalid&&DeleteAddressBook.controls.DepartmentId.touched"  class="text-danger">Required!</span>
+    </div>
+
+    <div class="form-group">
+        <label>Mobile Number</label>
+        <input [class.is-invalid]="DeleteAddressBook.controls.MobileNumber.invalid&&DeleteAddressBook.controls.MobileNumber.touched" class="form-control my-2" class="form-control my-2" type="text"  formControlName="MobileNumber">
+
+    </div>
+
+    <div class="form-group">
+        <label>Data of Birth</label>
+        <input [class.is-invalid]="DeleteAddressBook.controls.DateOfBirth.invalid&&DeleteAddressBook.controls.DateOfBirth.touched" class="form-control my-2" class="form-control my-2" type="date"  formControlName="DateOfBirth">
+
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input [class.is-invalid]="DeleteAddressBook.controls.Address.invalid&&DeleteAddressBook.controls.Address.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="Address">
+
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input [class.is-invalid]="DeleteAddressBook.controls.Email.invalid&&DeleteAddressBook.controls.Email.touched" class="form-control my-2" class="form-control my-2" type="text"   formControlName="Email">
+
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input [class.is-invalid]="DeleteAddressBook.controls.Password.invalid&&DeleteAddressBook.controls.Password.touched" class="form-control my-2" class="form-control my-2" type="text"   formControlName="Password">
+
+    </div>
+    
+    
+    <div class="form-group">
+        <label>Age</label>
+        <input [class.is-invalid]="DeleteAddressBook.controls.Age.invalid&&DeleteAddressBook.controls.Age.touched" class="form-control my-2" class="form-control my-2" type="text"   formControlName="Age">
+
+    </div>
+
+
+    <button  class="btn btn-danger " type="submit">Delete</button>
+    <a class="btn btn-light m-3" routerLink="/AddressBookHome">back to home</a>
+
+</form>
+
+
+

@@ -1,0 +1,12 @@
+<h1>Update Job!</h1>
+<form [formGroup]="UpdateJob" (ngSubmit)="Update()">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input  [class.is-invalid]="UpdateJob.controls.Name.invalid&&UpdateJob.controls.Name.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="Name" >
+        <span *ngIf="UpdateJob.controls.Name.invalid&&UpdateJob.controls.Name.touched"  class="text-danger">Required!</span>
+
+    </div>
+
+    <button  class="btn btn-primary my-2 mt-3" type="submit">Update</button>
+    <a class="btn btn-light m-3" routerLink="/JobsHome">back to home</a>
+</form>

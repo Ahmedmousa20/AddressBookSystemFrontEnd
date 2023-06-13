@@ -1,0 +1,13 @@
+<h1>Create Job!</h1>
+
+<form [formGroup]="CreateJob" (ngSubmit)="Create()">
+
+    <div class="form-group">
+        <label>Name</label>
+        <input  [class.is-invalid]="CreateJob.controls.Name.invalid&&CreateJob.controls.Name.touched" class="form-control my-2" class="form-control my-2" type="text" formControlName="Name" >
+        <span *ngIf="CreateJob.controls.Name.invalid&&CreateJob.controls.Name.touched"  class="text-danger">Required!</span>
+
+    </div>
+
+    <button  class="btn btn-primary my-2 mt-3" type="submit">Create</button>
+</form>
